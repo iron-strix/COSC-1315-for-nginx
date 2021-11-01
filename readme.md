@@ -1,0 +1,1 @@
+This is a web design course to teach CSS, HTML, and JS

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Images - Unobtrusively</title>
+
+    <style>
+        body{
+            background-image: url(../src/img/oriental-tiles.png);
+            color:yellow;
+        }
+
+        a{
+            color:ivory;
+        }
+        img{
+            width: 75%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <h1>Lesson 19 - Random Images - Unobtrusively</h1>
+
+        <p>Following is a random image. To see a new image
+
+            just reload this page.</p>
+
+        <blockquote id="quote">
+            <img src="../src/img/laptop_large.jpg">
+        </blockquote>
+
+        <script>
+            function getQuote() {
+                // Create the arrays
+                images = new Array(5);
+
+                // get the elements to write to by their ID
+                blockquote = document.getElementById("quote");
+
+                // Initialize the arrays with quotes
+                images[0] = '<img src="../src/img/laptop_large.jpg">';
+
+                images[1] = '<img src="../src/img/laptop2_large.jpg">';
+
+                images[2] = '<img src="../src/img/coffee_large.jpg">';
+
+                images[3] = '<img src="../src/img/board_large.jpg">';
+
+                images[4] = '<img src="../src/img/matrix_large.jpg">';
+
+                // Get a random index into the arrays
+                i = Math.floor(Math.random() * images.length);
+
+                // Write the quote to the DOM
+                blockquote.innerHTML = images[i];
+            }
+
+            getQuote();
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>

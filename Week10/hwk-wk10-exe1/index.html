@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapping Images</title>
+
+    <style>
+        body {
+            background-image: url(../src/img/double-bubble-outline.png);
+        }
+    </style>
+</head>
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <h2>Lesson 19 - Swapping Images</h2>
+        <div style="float: left; width: 50%;">
+            <img
+            id="large_photo"
+            style="border: 1px solid black; margin-right: 13px; width: 99%; height: auto;"
+            src="../src/img/laptop_large.jpg"
+            alt="large photo">
+
+            <p style="font-size: 9px; font-style: italic;">
+                Click on the small images to change the larger image above.
+            </p>
+
+            <a href="#" onclick="javascript:document.images['large_photo'].src = '../src/img/laptop_large.jpg'">
+                <img
+                    style="border: 1px solid black; margin-right: 3px; width: 150px; height: auto;"
+                    src="../src/img/laptop_small.jpg"
+                    alt="photo #1">
+            </a>
+
+            <a href="#" onclick="javascript:document.images['large_photo'].src = '../src/img/coffee_large.jpg'">
+                <img
+                    style="border: 1px solid black; margin-right: 3px; width: 150px; height: auto;"
+                    src="../src/img/coffee_small.jpg"
+                    alt="photo #2">
+            </a>
+
+            <a href="#" onclick="javascript:document.images['large_photo'].src = '../src/img/board_large.jpg'">
+                <img
+                    style="border: 1px solid black; margin-right: 3px; width: 150px; height: auto;"
+                    src="../src/img/board_small.jpg"
+                    alt="photo #3">
+            </a>
+
+            <a href="#" onclick="javascript:document.images['large_photo'].src = '../src/img/laptop2_large.jpg'">
+                <img
+                    style="border: 1px solid black; margin-right: 3px; width: 150px; height: auto;"
+                    src="../src/img/laptop2_small.jpg"
+                    alt="photo #4">
+            </a>
+
+            <a href="#" onclick="javascript:document.images['large_photo'].src = '../src/img/matrix_large.jpg'">
+                <img
+                    style="border: 1px solid black; margin-right: 3px; width: 150px; height: auto;"
+                    src="../src/img/matrix_small.jpg"
+                    alt="photo #5">
+            </a>
+        </div>
+        
+        <div style="float: right; width: 50%">
+            <p>
+                The Bachelor of Applied Technology Degree (BAT) in Computer and Information Technologies (CIT) prepares students for successful careers in the field of CIT.
+                Coursework is balanced between theoretical and technical competencies associated with the CIT profession to prepare graduates for a number of demands placed on CIT professionals.
+                The degree is designed to prepare students with relevant techological knowledge of CIT practices, in order to provide solutions for real-world problems and technical support for 
+                computer-based information systems. Technology-oriented coursework will form the core requirements for this program, with an emphasis on the application and implementation of current
+                technologies.
+            </p>
+    
+            <p>
+                The programs objectives include promoting academic development in a number of ways. The program offers a required capstone course that will enhance the educational experience and 
+                employment potential for students. The program will also include a strong professional component to develop skills in technical communication, ethics, and group work. Students 
+                graduating from the program will be prepared to enter the private sector as well as continue their education in a graduate program.
+            </p>
+    
+            <p>
+                Tuition for the computer and information technologies competency based courses are $850 per term. Students are able to accelerate through as many courses per term as possible,
+                provided they demonstrate mastery of the subjects. A student entering the program with no prior college credit should be able to complete the degree in three years at a significantly
+                reduced cost.
+            </p>
+        </div>
+    </section>
+
+    <footer style="height: 50px; width: 100%; float:left;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script> <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>

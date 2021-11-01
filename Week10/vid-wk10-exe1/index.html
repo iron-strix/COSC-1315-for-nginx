@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <h2>JavaScript</h2>
+        <button type="button" onclick="message1()">Click1</button>
+        <button type="button" onclick="message2()">Click2</button>
+        <button type="button" onclick="message3()">Click3</button>
+
+        <script>
+            var var1, var2, var3;
+            var1 = var2 = var3 = 0;
+            
+            function message1(){
+                var1++;
+                message();
+            }
+
+            function message2(){
+                var2++;
+                message();
+            }
+
+            function message3(){
+                var3++;
+                message();
+            }
+
+            function message(){
+                document.querySelector('h2').innerHTML = var1 + ' ' + var2 + ' ' + var3;
+            }
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script> <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>
