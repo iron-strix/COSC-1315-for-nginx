@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+    <style>
+        body{
+            background: linear-gradient(to right, grey 0%, darkblue 100%);
+        }
+
+        div{
+            background: linear-gradient(to right, darkblue 0%,grey 100%);
+            position: absolute;
+            border: 2px solid white;
+            top: 10px;
+            margin-left: 100px;
+            width: 900px;
+            height: 350px;
+        }
+
+        h1{
+            font-size: 100px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-top: 0px;
+        }
+
+        footer{
+            color: white;
+        }
+        
+        footer a:hover {
+            color: red;
+        }
+
+        footer a {
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+
+        <script>
+            now = new Date();
+            hours = now.getHours();
+
+            if (hours > 11){
+                ampm = ' p.m.';
+            }
+            else {
+                ampm = ' a.m.';
+            }
+
+            if (hours > 12){
+                hours = hours - 12; //gives standard time format
+            }
+
+            if (hours == 0){
+                hours = hours + 12; //to display midnight as 12:00:00 am
+            }
+
+            mins = now.getMinutes();
+
+            if (mins < 10){
+                mins = '0' + mins;
+            }
+
+            secs = now.getSeconds();
+
+            if (secs < 10){
+                secs = '0' + secs;
+            }
+            
+            document.write("<div><h1>** Clock **<br>");
+            document.write(hours + ":" +mins + ":" + secs + ampm);
+            document.write("</h1></div>");
+
+            function reload(){
+                document.location.reload();
+            }
+
+            setTimeout(reload, 1000);
+        </script>
+
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script> <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>

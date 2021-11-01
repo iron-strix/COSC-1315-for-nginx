@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating a Headline</title>
+
+    <style>
+        body {
+            background: #efefef;
+        }
+
+        h1 {
+            font-family: geneva, arial, helvetica, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            padding: 2rem 0;
+            color: red;
+            animation: myAnimation 5s infinite;
+        }
+
+        @keyframes myAnimation {
+
+            0% {
+                transform: translateY(-120px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <h1>My Headline</h1>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little 10/17/2021
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>

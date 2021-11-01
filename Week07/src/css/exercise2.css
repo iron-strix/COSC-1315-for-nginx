@@ -1,0 +1,44 @@
+body {
+    background-color: burlywood
+}
+
+section{
+    background-color: aliceblue;
+}
+
+footer{
+    background-color: darkgray;
+    color: white;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+    background-color: red;
+    color: white;
+}
+
+li a{
+    text-decoration: none;
+}
+
+.highlight {
+    background-color:yellow;
+}
+
+.bigText {
+    font-size: 200%;
+    font-weight: bold;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.oneText {
+    text-align: center;
+}
+
+
+
+.twoText {
+    line-height: 30px;
+}
