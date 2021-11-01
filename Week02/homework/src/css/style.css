@@ -1,0 +1,108 @@
+h1 {
+    font-family: oswaldlight, sans-serif;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 25px;
+    border-color: black;
+    width: 90%;
+    border-style: solid;
+    padding: 5px;
+    margin-left: 50px;
+    color:#5dacbd;
+  }
+
+h2 {
+    font-family: Consolas, sans-serif;
+    text-align: center;
+    padding: 10px;
+    color:#5dacbd;
+  }
+
+h3 {
+    font-family: robotolight, sans-serif;
+    padding: 10px;
+    margin-left: 75px;
+    color:#5dacbd;
+  }
+
+p.producttext {
+    font-family: robotolight, sans-serif;
+    text-align: center;
+    color:white
+}
+
+.product {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+header {
+    padding: 20px;
+}
+body {
+    background-color:#24527a;
+}
+
+nav {
+    background-color: #2b6191;
+    border-width: 1px;
+    border-color: #20486b;
+    width: 40%;
+    border-style: solid;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+section {
+    padding: 80px;
+}
+
+.productcontainer {
+    height: 325px;
+    width: 850px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-33.33%);
+}
+
+table {
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    height: 250px;
+    width: 250px;
+}
+
+a {
+    font-family: robotolight, sans-serif;
+}
+
+a:link {
+    color:chocolate;
+}
+
+a:visited {
+    color:rgb(148, 148, 148);
+}
+
+a:hover {
+    color: white;
+}
+
+a.pad {
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
