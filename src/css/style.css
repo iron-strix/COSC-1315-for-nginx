@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    padding: 5px;
+    margin-left: 50px;
+  }
+
+h2 {
+    font-family: oswaldlight, sans-serif;
+    border-width: 2px;
+    border-radius: 25px;
+    border-color: whitesmoke;
+    width: 50%;
+    border-style: solid;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 50px;
+  }
+
+h3 {
+    font-family: robotolight, sans-serif;
+    padding: 2px;
+    margin-left: 75px;
+  }
+
+p.indent {
+    font-family: robotolight, sans-serif;
+    margin-left: 100px;
+}
+
+body {
+    background-image: url(https://wallpapercave.com/wp/wp3354912.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 500px;
+    background-size: cover;
+    background-color:#a6a6a6;
+    color:whitesmoke;
+}
+
+a:link {
+    color:rgb(201, 92, 14);
+}
+
+a:visited {
+    color:rgb(167, 142, 126);
+}
+
+a:hover {
+    color: white;
+}

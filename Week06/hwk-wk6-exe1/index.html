@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STC Form practice</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body{
+            background-image: url("../src/img/hotel-wallpaper.png");
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        tr,
+        td {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-right: 15px;
+        }
+        
+        fieldset {
+            width: 75%;
+            border: 2px solid black;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 125%;
+        }
+
+        label.question {
+            width: 225px;
+            float: left;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        span.question {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            border: 1px solid #000;
+            padding: 3px;
+        }
+
+        #buttons {
+            margin-top: 12px;
+        }
+
+        #errors {
+            color: red;
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="min-height: calc(100vh - 50px);">
+        <h1>South Texas College - Student Information - Admissions Checklist</h1>
+
+        <form name="gbForm" method="post" action="URL_to_script">
+            <output id="errors"></output>
+            <fieldset style="background-color:darksalmon;">
+                <legend>Personal Information</legend>
+                <p>
+                    <label class="question" for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="First Name" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Last Name" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Address" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="City" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="State" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="zip">Zip Code</label>
+                    <input type="text" id="zip" name="zip" placeholder="Zip Code" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" placeholder="Phone" size="50" required autofocus>
+                </p>
+
+                <p>
+                    <label class="question" for="the_email">Email address</label>
+                    <input type="email" id="the_email" name="the_email" placeholder="Email address" size="50" required>
+                </p>
+            </fieldset>
+
+            <fieldset style="background-color: gray;">
+                <legend>Admissions Checklist</legend>
+                <span class="question"><p>Please check all that apply:</p></span>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" id="apply" name="some_statements[]" value="Application">
+                        <label for="apply">Application</label></td>
+
+                        <td><input type="checkbox" id="trans" name="some_statements[]" value="Transcript">
+                        <label for="trans">Transcript</label></td>
+
+                        <td><input type="checkbox" id="vaca" name="some_statements[]" value="Vacation">
+                        <label for="vaca">Vacation</label></td>
+
+                        <td><input type="checkbox" id="fin_aid" name="some_statements[]" value="Financial Aid">
+                        <label for="fin_aid">Financial Aid</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input type="checkbox" id="test" name="some_statements[]" value="Testing">
+                        <label for="test">Testing</label></td>
+
+                        <td><input type="checkbox" id="advising" name="some_statements[]" value="Advising">
+                        <label for="advising">Advising</label></td>
+
+                        <td><input type="checkbox" id="register" name="some_statements[]" value="Registration">
+                        <label for="register">Registration</label></td>
+
+                        <td><input type="checkbox" id="orient" name="some_statements[]" value="Orientation">
+                        <label for="orient">Orientation</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input type="checkbox" id="tuition" name="some_statements[]" value="Tuition and Fees">
+                        <label for="tuition">Tuition and Fees</label></td>
+
+                        <td><input type="checkbox" id="books" name="some_statements[]" value="Books">
+                        <label for="books">Books</label></td>
+
+                        <td><input type="checkbox" id="attend_class" name="some_statements[]" value="Go to class">
+                        <label for="attend_class">Go to class</label></td>
+
+                        <td><input type="checkbox" id="student" name="some_statements[]" value="Student life">
+                        <label for="student">Student Life</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input type="checkbox" id="grad" name="some_statements[]" value="Graduate">
+                        <label for="grad">Graduate</label></td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset style="background-color: lightblue;">
+                <legend>Comments</legend>
+                <p>
+                    <label for="message"><span class="question">Comments:</span></label>
+                    <textarea id="message" name="message" rows="7" cols="55"></textarea>
+                </p>
+            </fieldset>
+
+            <div id="buttons">
+                <input type="submit" value="Click Here to Submit"> or
+                <input type="reset" value="Erase and Start Over">
+            </div>
+        </form>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little 09/30/2021
+        </p>
+    </footer>
+</body>
+</html>

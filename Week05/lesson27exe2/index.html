@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Display Example</title>
+</head>
+
+<body>
+    <section style="min-height: calc(100vh - 50px);">
+        <h1>Form Display Example</h1>
+
+        <p>
+            Enter the following information. When you press the Display button, the data you entered will be displayed in a pop-up.
+        </p>
+
+        <form name="form1" method="get" action="">
+            <p>NAME: <input name="name" size="50"></p>
+            <p>ADDRESS: <input name="address" size="50"></p>
+            <p>PHONE: <input name="phone" size="50"></p>
+            <p><input type="button" value="Display" id="display"></p>
+
+        </form>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little 09/23/2021
+        </p>
+    </footer>
+
+    <script>
+
+        function display() {
+            dispWin = window.open('', 'NewWin', 'menubar=no,toolbar=no,status=no,width=400,height=100');
+
+            message = "<ul><li>NAME:" + document.form1.name.value;
+            message += "<li>ADDRESS:" + document.form1.address.value;
+            message += "<li>PHONE:" + document.form1.phone.value;
+            message += "</ul>";
+
+            dispWin.document.write(message);
+        }
+        document.getElementById("display").addEventListener("click", display);
+    </script>
+</body>
+</html>

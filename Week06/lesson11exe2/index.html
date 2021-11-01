@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Map Example</title>
+
+    <style>
+        #theImg {
+            width: 400px;
+            height: 500px;
+            background: url("../src/img/pets.png") no-repeat;
+            position: relative;
+            border: 1px solid #000000;
+            margin: 0 auto;
+        }
+
+        #theImg ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        #theImg a {
+            position: absolute;
+            text-indent: -1000em;
+        }
+
+        #theImg a:hover {
+            border: 4px dashed #ffff00;
+        }
+
+        #mc a {
+            top: 0px;
+            left: 0px;
+            width: 231px;
+            height: 146px;
+        }
+
+        #su a {
+            top: 0px;
+            left: 236px;
+            width: 164px;
+            height: 250px;
+        }
+
+        #st a {
+            top: 150px;
+            left: 0px;
+            width: 231px;
+            height: 100px;
+        }
+
+        #di a {
+            top: 255px;
+            left: 0px;
+            width: 160px;
+            height: 245px;
+        }
+
+        #sh a {
+            top: 255px;
+            left: 165px;
+            width: 235px;
+            height: 110px;
+        }
+
+        #au a {
+            top: 365px;
+            left: 165px;
+            width: 235px;
+            height: 130px;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <div id="theImg">
+            <ul>
+                <li id="mc"><a href="https://en.wikipedia.org/wiki/Pet" title="McKinley">McKinley</a></li>
+                <li id="su"><a href="https://en.wikipedia.org/wiki/Pet" title="Suni">Suni</a></li>
+                <li id="st"><a href="https://en.wikipedia.org/wiki/Pet" title="Stormageddon">Stormageddon</a></li>
+                <li id="di"><a href="https://en.wikipedia.org/wiki/Pet" title="Diamond">Diamond</a></li>
+                <li id="sh"><a href="https://en.wikipedia.org/wiki/Pet" title="Shasta">Shasta / Inara</a></li>
+                <li id="au"><a href=”https://en.wikipedia.org/wiki/Pet” title=”Auto”>Suni / Auto</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little 09/29/2021
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning of Images on the Webpage</title>
+
+    <style>
+        body{
+            background: url("../src/img/stars.jpg") no-repeat center fixed;
+            background-size: cover;
+            color:white;
+        }
+
+        img#moon {
+            position: absolute;
+            left: -90px;
+            top: 0px;
+            width: 50%;
+            height: auto;
+            z-index: 1;
+        }
+
+        img#planet {
+            position: absolute;
+            left: 300px;
+            top: 0px;
+            width: 25%;
+            height: auto;
+            z-index: 0;
+        }
+
+        img#wolf1 {
+            position: absolute;
+            left: 200px;
+            top: 440px;
+            width: 20%;
+            height: auto;
+            z-index: 2;
+        }
+
+        img#wolf2 {
+            position: absolute;
+            left: 900px;
+            top: 110px;
+            width: 30%;
+            height: auto;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>  
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <img id="moon" src="../src/img/moon.png">
+        <img id="planet" src="../src/img/planet.png">
+        <img id="wolf1" src="../src/img/wofl1.png">
+        <img id="wolf2" src="../src/img/wofl2.png">
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="/localuser/nlittle/index.html">Index Link</a><br>
+            Nigel Little 10/01/2021 <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>
