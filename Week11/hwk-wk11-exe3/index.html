@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrosas Empanadas</title>
+    <style>
+        body{
+            background: linear-gradient(to right, grey 0%, purple 100%);
+            color: white;
+        }
+        img{
+            width: 250px;
+            height: auto;
+        }
+
+        table, tr, td {
+            border: solid black 1px;
+            border-collapse:collapse;
+            padding: 3px;
+        }
+
+        a:link, a:visited {
+            font-weight: bold;
+            text-decoration: none;
+            color: cyan;
+        }
+
+        a:hover {
+            font-weight: bolder;
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <table>
+            <form name="theform">
+                <tr>
+                    <td colspan="2">
+                        <h1>Sabrosas Empanadas</h1>
+                        <h3>Catering Invoice<br>
+                            Sabrosas Empanadas & more<br>
+                            111 Pecan Blvd. <br>
+                            McAllen, TX 78501<br>
+                            (956) 123-4567
+                        </h3>
+                    </td>
+                    <td colspan="2" id="displayImages"></td>
+                </tr>
+
+                <tr>
+                    <td><strong>MENU ITEM</strong></td>
+                    <td><strong>UNIT PRICE</strong></td>
+                    <td><strong>QUANTITY</strong></td>
+                    <td><strong>LINE TOTAL</strong></td>
+                </tr>
+
+                <tr>
+                    <td>Empanadas: Chicken</td>
+                    <td>$2.98</td>
+                    <td><input name="chickenQTY_FM" size="10"></td>
+                    <td id="chickenOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td>Empanadas: Rib</td>
+                    <td>$2.98</td>
+                    <td><input name="ribQTY_FM" size="10"></td>
+                    <td id="ribOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td>Empanadas: Cheese</td>
+                    <td>$3.75</td>
+                    <td><input name="cheeseQTY_FM" size="10"></td>
+                    <td id="cheeseOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td>Sides: Beans and Rice</td>
+                    <td>$1.98</td>
+                    <td><input name="beansQTY_FM" size="10"></td>
+                    <td id="beansOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><span style="float:right;">TAX: (8.25%)</span></td>
+                    <td id="taxOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><span style="float:right;">TOTAL:</span></td>
+                    <td id="totalOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="button" name="calc" value="Calculate" onClick="calculate();">
+                        <input type="button" name="clear" value="Clear" onClick="clearForm();">
+                    </td>
+                    <td colspan="2">TOTAL AFTER DISCOUNT: (25%)</td>
+                    <td id="discountOUTPUT_FM" style="background-color: white; color: black;"></td>
+                </tr>
+            </form>
+        </table>
+
+        <script>
+            //declare functions
+            function calculate(){
+                //declare vars
+                const chickenPrice = 2.98;
+                const ribPrice = 2.98;
+                const cheesePrice = 3.75;
+                const beansPrice = 1.98;
+
+                var chickenQuantity;
+                var ribQuantity;
+                var cheeseQuantity;
+                var beansQuantity;
+
+                var totalChicken;
+                var totalRib;
+                var totalCheese;
+                var totalBeans;
+
+                var tax;
+                var total;
+                var totalWithDiscount;
+
+                //get values from form fields
+                chickenQuantity = parseInt(document.theform.chickenQTY_FM.value);
+                ribQuantity = parseInt(document.theform.ribQTY_FM.value);
+                cheeseQuantity = parseInt(document.theform.cheeseQTY_FM.value);
+                beansQuantity = parseInt(document.theform.beansQTY_FM.value);
+
+                //do calculations
+                totalChicken = parseFloat(chickenPrice * chickenQuantity);
+                totalRib = parseFloat(ribPrice * ribQuantity);
+                totalCheese = parseFloat(cheesePrice * cheeseQuantity);
+                totalBeans = parseFloat(beansPrice * beansQuantity);
+
+                tax = parseFloat((totalChicken + totalRib + totalCheese + totalBeans) * 0.0825);
+                total = parseFloat((totalChicken + totalBeans + totalCheese + totalRib + tax));
+                totalWithDiscount = parseFloat(total - (total*.25));
+
+                //display calculations
+                document.getElementById("chickenOUTPUT_FM").innerHTML = "$ " + totalChicken.toFixed(2);
+                document.getElementById("ribOUTPUT_FM").innerHTML = "$ " + totalRib.toFixed(2);
+                document.getElementById("cheeseOUTPUT_FM").innerHTML = "$ " + totalCheese.toFixed(2);
+                document.getElementById("beansOUTPUT_FM").innerHTML = "$ " + totalBeans.toFixed(2);
+
+                document.getElementById("taxOUTPUT_FM").innerHTML = "$ " + tax.toFixed(2);
+                document.getElementById("totalOUTPUT_FM").innerHTML = "$ " + total.toFixed(2);
+                document.getElementById("discountOUTPUT_FM").innerHTML = "$ " + totalWithDiscount.toFixed(2);
+            }
+
+            function clearForm(){
+                document.theform.chickenQTY_FM.value = " ";
+                document.theform.ribQTY_FM.value = " ";
+                document.theform.cheeseQTY_FM.value = " ";
+                document.theform.beansQTY_FM.value = " ";
+
+                document.getElementById("chickenOUTPUT_FM").innerHTML = " ";
+                document.getElementById("ribOUTPUT_FM").innerHTML = " ";
+                document.getElementById("cheeseOUTPUT_FM").innerHTML = " ";
+                document.getElementById("beansOUTPUT_FM").innerHTML = " ";
+
+                document.getElementById("taxOUTPUT_FM").innerHTML = " ";
+                document.getElementById("totalOUTPUT_FM").innerHTML = " ";
+                document.getElementById("discountOUTPUT_FM").innerHTML = " ";
+
+                document.theform.chickenQTY_FM.focus();
+            }
+
+            function getImages(){
+                //focus on top of form
+                document.theform.chickenQTY_FM.focus();
+
+                //create array object
+                images = new Array(5);
+
+                //get element by id
+                displayImages = document.getElementById("displayImages");
+
+                //init array with images
+                images[0] = '<img src="../src/img/emp1.jpg">';
+                images[1] = '<img src="../src/img/emp2.jpg">';
+                images[2] = '<img src="../src/img/emp3.jpg">';
+                images[3] = '<img src="../src/img/emp4.jpg">';
+                images[4] = '<img src="../src/img/emp5.jpg">';
+
+                //random index
+                i = Math.floor(Math.random() * images.length);
+
+                //display a random image inside of displayImages element
+                displayImages.innerHTML = images[i];
+            }
+
+            getImages();
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br>
+            Nigel Little <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script> <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sorting Example</title>
+</head>
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <h1>Sorting String Arrays</h1>
+
+        <p>Enter two or more names in the field below,
+            and the sorted list of names will appear
+            in the text area.
+        </p>
+
+        <form name="theform">
+            Name:
+            <input name="newname" size="20">
+            <input type="button" name="addname" value="Add" onclick="SortNames();">
+            <br>
+            
+            <h2>Sorted Names</h2>
+            <textarea cols="60" rows="10" name="sorted">
+                The sorted names will appear here.
+            </textarea>
+        </form>
+
+        <script src="../src/js/sort.js"></script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br>
+            Nigel Little <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script> <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+</html>
