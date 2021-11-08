@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@300&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #434343;
+    background: #DAE3E7;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+    color: #778492;
+}
+
+a {
+    color: #da6200;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #5f6b77;
+    color: #15c9cf;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+}
+
+.content-wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #f5f5f5;
+    border-top: 10px solid #778492;
+}
+
+.header .profile-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    padding: 10px;
+    display: block;
+    float: left;
+}
+
+.header .profile-content {
+    display: block;
+}
+
+.header .profile-content .name {
+    color: #49515a;
+    font-size: 38px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+
+.header .profile-content .description {
+    color: #778492;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.header .profile-content .socials a {
+    background: #b0b7bf;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+.header .profile-content .socials a:hover {
+    background: #778492;
+}
+
+.header .profile-content .socials li {
+    list-style: none;
+}
+
+.header .profile-content .socials li img {
+    padding-top: 8px;
+    width: 20px;
+    height: auto;
+}
+
+.left-content {
+    float: left;
+    width: 70%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.right-content {
+    float: right;
+    width: 30%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.content {
+    box-sizing: border-box;
+}
+
+.list-unstyled {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.list-unstyled li {
+    padding-bottom: 8px;
+}
+
+.about {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.heading {
+    color: #49515a;
+}
+
+.info {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.inner {
+    margin: auto;
+    width: 90%;
+    padding: 20px;
+    background: #fff;
+}
+
+.title {
+    color: #778492;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.school {
+    color: #999;
+    font-size: 13px;
+    padding-left: 30px;
+}
+
+.year {
+    color: #b0b7bf;
+    font-weight: 500px;
+}
+
+.icon {
+    height: 16px;
+    width: auto;
+    padding-right: 8px;
+    display: inline-block;
+    text-align: center;
+}
+
+.item {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #f5f5f5;
+    border-bottom: 10px solid #778492;
+}
+
+
+/* Formatting for phone or for desktop */
+
+
+/* PHONES */
+
+@media (max-width: 767px) {
+    .header {
+        text-align: center;
+    }
+    .header .profile-image {
+        float: none !important;
+        margin: 0 auto;
+    }
+    .header .profile-content {
+        float: none !important;
+        text-align: center;
+    }
+    .project-image {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* DESKTOPS */
+
+@media(min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
