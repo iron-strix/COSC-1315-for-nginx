@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradebook - COSC 1315</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Righteous&display=swap');
+        body {
+            background-color: slategray;
+            color: white;
+        }
+        
+        .border {
+            border: solid white 5px;
+            padding: 2px;
+        }
+        
+        h1 {
+            font-family: 'Righteous', cursive;
+            font-weight: bold;
+            padding: 2px;
+        }
+        
+        p,
+        td {
+            font-family: 'Merriweather', serif;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <div class="border">
+            <h1>Gradebook - COSC 1315</h1>
+            <p>
+                Input grades for each category to calculate overall average.
+            </p>
+            <form name="myForm">
+                <table>
+                    <tr>
+                        <td rowspan="9"><img src="../src/img/grades.png" alt="picture of a gradebook" style="width: 350px; height: auto;"></td>
+                        <td style="float: right;"><strong>Practice Exercises (15%):</strong></td>
+                        <td><input name="practiceFM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Homework Exercises (30%):</strong></td>
+                        <td><input name="homeworkFM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Exam 1 - HTML5 (10%):</strong></td>
+                        <td><input name="exam1FM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Exam 2 - CSS (10%):</strong></td>
+                        <td><input name="exam2FM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Exam 3 - JavaScript (10%):</strong></td>
+                        <td><input name="exam3FM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Project (25%):</strong></td>
+                        <td><input name="projectFM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Overall Average (numeric):</strong></td>
+                        <td style="background-color: white; color: black" id="averageNumericFM_OUTPUT"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Overall Average (letter):</strong></td>
+                        <td style="background-color: white; color: black" id="averageLetterFM_OUTPUT"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="calc" value="Calculate" onclick="calculate();">
+                            <input type="button" name="clear" value="Clear" onclick="clearInfo();">
+
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <script>
+            document.myForm.practiceFM_INPUT.focus();
+
+            function calculate() {
+                //declare const and var
+                const practice_c = .15; //practice worth 15%
+                const homework_c = .30; //hwk worth 30%
+                const exam1_c = .10; //exam 1 worth 10%
+                const exam2_c = .10; //exam 2 worth 10%
+                const exam3_c = .10; //exam 3 worth 10%
+                const project_c = .25; //project worth 25%
+
+                var practice, homework, exam1, exam2, exam3, project;
+                var averageNumeric, averageLetter;
+
+                //get values from text fields
+                practice = parseFloat(document.myForm.practiceFM_INPUT.value);
+                homework = parseFloat(document.myForm.homeworkFM_INPUT.value);
+                exam1 = parseFloat(document.myForm.exam1FM_INPUT.value);
+                exam2 = parseFloat(document.myForm.exam2FM_INPUT.value);
+                exam3 = parseFloat(document.myForm.exam3FM_INPUT.value);
+                project = parseFloat(document.myForm.projectFM_INPUT.value);
+
+                //calculate overall numeric average
+                averageNumeric = parseFloat((practice * practice_c) + (homework * homework_c) + (exam1 * exam1_c) + (exam2 * exam2_c) + (exam3 * exam3_c) + (project * project_c));
+
+                //display the overall numerical and letter grade averages
+                document.getElementById("averageNumericFM_OUTPUT").innerHTML = averageNumeric.toFixed(2);
+
+                if (averageNumeric >= 90)
+                    averageLetter = "A";
+                else if (averageNumeric >= 80)
+                    averageLetter = "B";
+                else if (averageNumeric >= 70)
+                    averageLetter = "C";
+                else if (averageNumeric >= 60)
+                    averageLetter = "D";
+                else
+                    averageLetter = "F";
+
+                document.getElementById("averageLetterFM_OUTPUT").innerHTML = averageLetter;
+            }
+
+            function clearInfo() {
+                document.myForm.practiceFM_INPUT.value = "";
+                document.myForm.homeworkFM_INPUT.value = "";
+                document.myForm.exam1FM_INPUT.value = "";
+                document.myForm.exam2FM_INPUT.value = "";
+                document.myForm.exam3FM_INPUT.value = "";
+                document.myForm.projectFM_INPUT.value = "";
+                document.getElementById("averageNumericFM_OUTPUT").innerHTML = "";
+                document.getElementById("averageLetterFM_OUTPUT").innerHTML = "";
+
+                document.myForm.practiceFM_INPUT.focus();
+            }
+
+            clearInfo();
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br> Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>

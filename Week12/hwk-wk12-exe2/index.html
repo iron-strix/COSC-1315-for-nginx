@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=ZCOOL+XiaoWei&display=swap');
+        body {
+            background: linear-gradient(to right, #0341fc 0%, #242b66 100%);
+        }
+        
+        h1,
+        h2 {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-weight: bold;
+            padding: 5px;
+            color: white;
+        }
+        
+        p,
+        td {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            padding: 2px;
+            color: lightgrey;
+        }
+        
+        hr {
+            color: white;
+        }
+        
+        a {
+            color: gold;
+        }
+        
+        a:hover {
+            color: cyan;
+        }
+        
+        .container {
+            border: solid white 5px;
+        }
+        
+        .container img {
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <div class="container">
+            <h1>Temperature Converter</h1>
+            <p>
+                Calculate farenheit to celcius: ex. (68&degF - 32) &times 5/9 = 20&degC <br> Calculate celcius to farenheit: ex. (20&degC &times 1.8) + 32 = 68&degF
+            </p>
+
+            <form name="myForm">
+                <table>
+                    <tr>
+                        <td rowspan="9"><img src="../src/img/road.jpg" alt="picture of a gradebook" style="width: 350px; height: auto;"></td>
+                        <td style="float: right;"><strong>Enter temperature value in farenheit:</strong></td>
+                        <td><input name="farenFM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Celcius:</strong></td>
+                        <td style="background-color: white; color: black" id="celciusFM_OUTPUT"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="calcCelc" value="Calculate" onclick="calculateCelc();">
+                            <input type="button" name="clear" value="Clear" onclick="clearInfoCelc();">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Enter temperature value in celcius:</strong></td>
+                        <td><input name="celciusFM_INPUT" size="10"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="float: right;"><strong>Farenheit:</strong></td>
+                        <td style="background-color: white; color: black" id="farenFM_OUTPUT"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" name="calcFaren" value="Calculate" onclick="calculateFaren();">
+                            <input type="button" name="clear" value="Clear" onclick="clearInfoFaren();">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <script src="../src/js/tempconvert.js">
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br> Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>
