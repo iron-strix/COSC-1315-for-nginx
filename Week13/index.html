@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=ZCOOL+XiaoWei&display=swap');
+        body {
+            background: linear-gradient(to right, #00681a 0%, #438a00 100%);
+        }
+        
+        h1,
+        h2 {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-weight: bold;
+            padding: 5px;
+            color: white;
+        }
+        
+        p,
+        td {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            padding: 2px;
+            color: lightgrey;
+        }
+        
+        a {
+            color: gold;
+        }
+        
+        a:hover {
+            color: cyan;
+        }
+        
+        .container {
+            border: solid white 5px;
+        }
+        
+        .container img {
+            border-radius: 50px;
+            width: auto;
+            height: 426px;
+            object-fit: fill;
+            padding: 0px;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        .header {
+            float: left;
+            display: block;
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);">
+        <!--CONTENT HERE-->
+        <div class="container">
+            <div class="header">
+                <h1>Hotel Charges</h1>
+                <p>
+                    Input number of nights, nightly charge, room service charge, telephone charge, and miscellaneous charges to compute room charges, additional charges, tax, and total charges for your stay at the hotel. Taxes are applied as follows: sales tax (8.25%) is
+                    applied to all extras charged to the room, but room charges are subject to occupancy tax for both city and state (7.00% city, 6.00% state). The room occupancy is not charged sales tax.
+                </p>
+            </div>
+
+            <div>
+                <form name="myForm">
+                    <table>
+                        <tr>
+                            <td rowspan="19"><img src="../week13/src/img/room.jpg"></td>
+                            <td><strong>Room Charges:</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Nights:</td>
+                            <td><input name="nightsFM_INPUT" size="10"></td>
+                            <td rowspan="17"><img src="../week13/src/img/lamp.png"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Nightly Charge:</td>
+                            <td><input name="rateFM_INPUT" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Additional Charges:</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Room Service:</td>
+                            <td><input name="serviceFM_INPUT" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Telephone:</td>
+                            <td><input name="phoneFM_INPUT" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Miscellaneous:</td>
+                            <td><input name="miscFM_INPUT" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Total Charges:</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Room Charges:</td>
+                            <td style="background-color: white; color: black" id="roomFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Additional Charges:</td>
+                            <td style="background-color: white; color: black" id="additionalFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Subtotal:</td>
+                            <td style="background-color: white; color: black" id="subtotalFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Sales Tax (8.25%):</td>
+                            <td style="background-color: white; color: black" id="salestaxFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">City Occupancy Tax (7.00%):</td>
+                            <td style="background-color: white; color: black" id="citytaxFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">State Occupancy Tax (6.00%):</td>
+                            <td style="background-color: white; color: black" id="statetaxFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="right">Total Charges:</td>
+                            <td style="background-color: white; color: black" id="totalFM_OUTPUT"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" name="calc" value="Calculate" onclick="calculate();">
+                                <input type="button" name="clear" value="Clear" onclick="clearInfo();">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <script src="../week13/src/js/hotel.js"></script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br> Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>
