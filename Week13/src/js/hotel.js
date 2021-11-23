@@ -3,8 +3,8 @@ document.myForm.nightsFM_INPUT.focus();
 function calculate() {
     //declare const and var
     const salesTax_c = 0.0825;
-    const cityTax_c = 0.007;
-    const stateTax_c = 0.006;
+    const cityTax_c = 0.07;
+    const stateTax_c = 0.06;
 
     //input vars
     var nights, rate, service, phone, misc;
