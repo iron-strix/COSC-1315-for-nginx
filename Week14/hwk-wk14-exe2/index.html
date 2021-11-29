@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Loan Calculator</title>
+    <script src="../src/js/accounting.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Noto+Serif&display=swap');
+        h1 {
+            font-family: 'Noto Serif', serif;
+            font-size: 45px;
+            color: white;
+        }
+        
+        h3 {
+            font-family: 'Noto Serif', serif;
+            font-size: 20px;
+            color: white;
+        }
+        
+        h4 {
+            font-family: 'Noto Serif', serif;
+            font-size: 20px;
+            color: rgb(179, 179, 179);
+        }
+        
+        th {
+            font-family: 'Noto Serif', serif;
+            font-size: 16px;
+            color: white;
+        }
+        
+        td {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            color: rgb(150, 150, 150);
+        }
+        
+        body {
+            background: linear-gradient(to top, rgb(37, 37, 37) 0%, rgb(63, 63, 63) 100%);
+            color: rgb(150, 150, 150);
+            font-family: 'Lato', sans-serif;
+            font-size: 13px;
+        }
+        
+        a:link,
+        a:visited {
+            color: orange;
+        }
+        
+        a:hover {
+            color: white;
+        }
+        
+        img {
+            width: 250px;
+            height: auto;
+            border: solid white 2px;
+            margin: 0px 5px;
+        }
+        
+        .borderclass {
+            border: solid black 3px;
+            padding: 3px;
+        }
+        
+        .tabledisplay {
+            width: 100%;
+            border: solid white 1px;
+            border-collapse: collapse;
+            padding: 3px;
+        }
+        
+        .trdisplay {
+            border: solid white 1px;
+            border-collapse: collapse;
+        }
+        
+        .tddisplay {
+            border: solid white 1px;
+            border-collapse: collapse;
+            padding: 0px 20px 0px 20px;
+        }
+        
+        .toRight {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);" class="borderclass">
+        <!--CONTENT HERE-->
+        <h1>Mortgage Loan Calculator</h1>
+
+        <form name="myForm">
+            <table>
+                <tr>
+                    <td><strong><span style="float: left;">Loan Amount:</span></strong></td>
+                    <td><input name="loanAmtFM_INPUT" size="10"></td>
+                    <td rowspan="7"><img src="../src/img/mortgage.jpg"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float: left;">Rate:</span></strong></td>
+                    <td><input name="rateFM_INPUT" size="10"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float: left;">Years:</span></strong></td>
+                    <td><input name="yearsFM_INPUT" size="10"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float: left;">Num of Payments:</span></strong></td>
+                    <td style="background-color: white; color: black;" id="numOfPaymentsFM_OUTPUT"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float: left;">Monthly Payment:</span></strong></td>
+                    <td style="background-color: white; color: black;" id="monthlyPaymentFM_OUTPUT"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float: left;">Total Interest:</span></strong></td>
+                    <td style="background-color: white; color: black;" id="totalInterestFM_OUTPUT"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="button" name="calc" value="Calculate" onclick="calculate();">
+                        <input type="button" name="clear" value="Clear" onclick="clearForm();">
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <span><h3>Loan Amount:</h3></span>
+        <span id="loanAmtFM_OUTPUT"></span>
+        <span id="display" style="background-color: white; color: black;"></span>
+
+        <script>
+            function calculate() {
+                //declare vars
+                let loan = parseFloat(document.myForm.loanAmtFM_INPUT.value);
+                let rate = parseFloat(document.myForm.rateFM_INPUT.value);
+                rate = parseFloat(rate / 1200); //this converts interest rate to a monthly rate
+                let years = parseInt(document.myForm.yearsFM_INPUT.value);
+                let months = years * 12; //formula uses months to calculate payments
+
+                let interest;
+                let balance = parseFloat(loan);
+                let principal;
+
+
+                let payment = loan * rate * (Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1)
+                let totalInterest = parseFloat((payment * months) - loan);
+
+                let report = "<table class='tabledisplay'>";
+                //displays table header
+                report += "<tr><th class='tddisplay'>" + "Pmt Num" +
+                    "</th><th class='tddisplay'>" + "Interest" +
+                    "</th><th class='tddisplay'>" + "Principal" +
+                    "</th><th class='tddisplay'>" + "Payment" +
+                    "</th><th class='tddisplay'>" + "Balance" +
+                    "</th></tr>";
+
+                for (var i = 1; i < months; i++) {
+                    interest = parseFloat(balance * rate); //how much interest must be paid on loan
+                    principal = parseFloat(payment - interest); //how much is paid towards principal
+                    balance = parseFloat(balance - principal); //new balance is old balance less principal payment
+                    report += "<tr class='trdisplay'><td class='tddisplay'>" + i.toFixed(0) +
+                        "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(interest) + "</span>" +
+                        "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(principal) + "</span>" +
+                        "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(payment) + "</span>" +
+                        "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(balance) + "</span>" + "</td></tr>";
+                }
+
+                //this is to work around the fact that doing the last payment inside for loop returns a NaN for the accounting.formatMoney method
+                interest = parseFloat(balance * rate); //how much interest must be paid on loan
+                principal = parseFloat(payment - interest); //how much is paid towards principal
+                balance = parseFloat(balance - principal); //new balance is old balance less principal payment
+                report += "<tr class='trdisplay'><td class='tddisplay'>" + i.toFixed(0) +
+                    "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(interest) + "</span>" +
+                    "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(principal) + "</span>" +
+                    "</td><td class='tddisplay'><span class='toRight'>" + accounting.formatMoney(payment) + "</span>" +
+                    "</td><td class='tddisplay'><span class='toRight'>" + "$0.00" + "</span>" + "</td></tr>";
+
+                report += "</table>";
+                document.getElementById("display").innerHTML = report;
+
+                document.getElementById("numOfPaymentsFM_OUTPUT").innerHTML = months;
+                document.getElementById("monthlyPaymentFM_OUTPUT").innerHTML = accounting.formatMoney(payment);
+                document.getElementById("totalInterestFM_OUTPUT").innerHTML = accounting.formatMoney(totalInterest);
+                document.getElementById("loanAmtFM_OUTPUT").innerHTML = "<h4>" + accounting.formatMoney(loan) + "</h4>";
+                document.myForm.loanAmtFM_INPUT.value = accounting.formatMoney(loan);
+                document.myForm.rateFM_INPUT.value = toPercent(rate);
+            }
+
+            function clearForm() {
+                document.myForm.loanAmtFM_INPUT.focus();
+
+                document.myForm.loanAmtFM_INPUT.value = "";
+                document.myForm.rateFM_INPUT.value = "";
+                document.myForm.yearsFM_INPUT.value = "";
+
+                document.getElementById("numOfPaymentsFM_OUTPUT").innerHTML = "";
+                document.getElementById("monthlyPaymentFM_OUTPUT").innerHTML = "";
+                document.getElementById("totalInterestFM_OUTPUT").innerHTML = "";
+                document.getElementById("loanAmtFM_OUTPUT").innerHTML = "";
+
+                document.getElementById("display").innerHTML = "";
+            }
+
+            function toPercent(rate) {
+                return ((rate * 1200) + "%");
+            }
+
+            clearForm();
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br> Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>

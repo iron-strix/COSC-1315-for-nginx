@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Tables</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, darkgrey 0%, lightgray 100%);
+            color: black;
+        }
+        
+        .borderclass {
+            border: solid white 3px;
+            padding: 2px;
+        }
+        
+        img {
+            width: 250px;
+            height: auto;
+            border-radius: 5rem;
+            padding: 5px;
+        }
+        
+        a:link,
+        a:visited {
+            font-weight: bold;
+            text-decoration: none;
+            color: orange;
+        }
+        
+        a:hover {
+            color: white;
+        }
+        
+        .tabledisplay {
+            width: 100%;
+            border: solid black 1px;
+            border-collapse: collapse;
+            padding: 3px;
+        }
+        
+        .trdisplay {
+            border: solid black 1px;
+            border-collapse: collapse;
+        }
+        
+        .tddisplay {
+            padding: 0px 0px 0px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section style="min-height: calc(100vh - 50px);" class="borderclass">
+        <!--CONTENT HERE-->
+        <h1>Multiplication Tables</h1>
+        <h3>Enter two values to create a multiplication table.</h3>
+
+        <form name="myForm">
+            <table>
+                <tr>
+                    <td rowspan="3"><img src="../src/img/faces.jpg"></td>
+                    <td><strong><span style="float:right;">Enter value to multiply:</span></strong></td>
+                    <td><input name="valueToMultiplyFM_INPUT" size="10"></td>
+                </tr>
+
+                <tr>
+                    <td><strong><span style="float:right;">How many times:</span></strong></td>
+                    <td><input name="timesFM_INPUT" size="10"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="button" name="calc" value="Calculate" onclick="calculate();">
+                        <input type="button" name="clear" value="Clear" onclick="clearForm();">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <h2 style="background-color: white; color:black;" id="reportFM_OUTPUT"></h2>
+
+        <script>
+            function calculate() {
+                //declare  vars
+                let value = parseInt(document.myForm.valueToMultiplyFM_INPUT.value);
+                let times = parseInt(document.myForm.timesFM_INPUT.value);
+                let answer;
+                let report = "<table class='tabledisplay'>";
+
+                for (let i = 1; i <= times; i++) {
+                    answer = value * i;
+                    report += "<tr class='trdisplay'><td class='tddisplay'>" + value + " X " + i + " = " + answer + "</td></tr>";
+                }
+
+                report += "</table>";
+
+                document.getElementById("reportFM_OUTPUT").innerHTML = report;
+            }
+
+            function clearForm() {
+                document.myForm.valueToMultiplyFM_INPUT.value = "";
+                document.myForm.timesFM_INPUT.value = "";
+                document.getElementById("reportFM_OUTPUT").innerHTML = "";
+
+                document.myForm.valueToMultiplyFM_INPUT.focus();
+            }
+
+            clearForm();
+        </script>
+    </section>
+
+    <footer style="height: 50px;">
+        <hr>
+        <br>
+        <p style="text-align:center">
+            <a href="https://strix.quest/COSC-1315-for-nginx/index.html">Index Link</a><br> Nigel Little
+            <script>
+                // Hide the script from old browsers
+                document.write(document.lastModified);
+                // Stop hiding the script
+            </script>
+            <!--Remember to update date-->
+        </p>
+    </footer>
+</body>
+
+</html>
